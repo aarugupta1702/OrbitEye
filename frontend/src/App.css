@@ -1,0 +1,120 @@
+/* 1. Force the app to take full screen */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Stop scrolling */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. The Main Container */
+.mission-control {
+  position: relative; /* Establish a stacking context */
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+/* 3. The Dashboard - FORCE IT TO THE FRONT */
+.dashboard {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 320px;
+  
+  /* GLASSMORPHISM STYLE */
+  background: rgba(15, 15, 25, 0.85); /* Darker background for visibility */
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  
+  /* CRITICAL FIX: This number puts it on top of the globe */
+  z-index: 9999 !important; 
+}
+
+/* 4. The Satellite Selector */
+.sat-selector {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* 5. Tabs */
+.tab-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #555;
+  color: #888;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background: #00e5ff;
+  color: black;
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* 6. Buttons */
+.view-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 229, 255, 0.15);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.view-btn:hover {
+  background: #00e5ff;
+  color: black;
+}
+
+/* 7. Text Styles */
+.header {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00e5ff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px red;
+  animation: blink 1s infinite;
+}
+
+.data-item h2 { margin: 5px 0; font-size: 28px; }
+.data-item p { margin: 2px 0; color: #ccc; font-size: 13px; }
+
+@keyframes blink { 50% { opacity: 0.5; } }

@@ -52,7 +52,7 @@ function App() {
     setPositionProperty(null);
     setSatRec(null);
 
-    axios.get(`http://127.0.0.1:8000/api/tle/${encodeURIComponent(selectedSat)}`)
+    axios.get(`https://orbiteye-backend.onrender.com/api/tle/${encodeURIComponent(selectedSat)}`)
       .then((res) => {
         if (res.data.error) {
            setStatusMsg(`Backend Error: ${res.data.error}`);
